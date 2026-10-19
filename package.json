@@ -1,0 +1,29 @@
+{
+  "name": "@aifire/gitalk-deploy",
+  "version": "main",
+  "description": "Deploy the Gitalk proxy to Cloudflare Workers or Tencent CloudBase",
+  "type": "module",
+  "bin": {
+    "gitalk-deploy": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "README-CN.md"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "esbuild src/cli.ts --bundle --format=esm --platform=node --target=node20 --outfile=dist/cli.js",
+    "bundle": "node scripts/bundle.mjs"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

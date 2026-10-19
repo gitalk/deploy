@@ -1,0 +1,15 @@
+name = "gitalk-proxy"
+main = "./index.js"
+compatibility_date = "2026-10-01"
+
+# No `[vars]` block on purpose.
+#
+# Every binding this Worker needs is an encrypted secret, pushed by
+# `pnpm --filter @gitalk/proxy-worker deploy` from `.env`. Keeping even one
+# value here as well creates two sources of truth for the same name, and
+# Cloudflare rejects the deploy outright:
+#
+#   Binding name 'GITALK_ALLOWED_ORIGINS' already in use. [code: 10053]
+#
+# For local development put the same keys in `.env` (see `.env.example`);
+# `wrangler dev` loads that file automatically.
